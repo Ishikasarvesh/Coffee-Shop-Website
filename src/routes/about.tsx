@@ -5,11 +5,11 @@ import heroCup from "@/assets/hero-cup.png";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Our Story & Coffee Craft — BODRIN" },
+      { title: "Our Story & Coffee Craft — LATTE LOCA" },
       {
         name: "description",
         content:
-          "Learn about BODRIN coffee philosophy: single-origin direct farm sourcing, micro-batch drum roasting, and creating a warm cafe space.",
+          "Learn about LATTE LOCA coffee philosophy: single-origin direct farm sourcing, micro-batch drum roasting, and creating a warm cafe space.",
       },
     ],
   }),
@@ -29,7 +29,7 @@ function AboutPage() {
             Crafting Extraordinary Coffee Moments
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
-            BODRIN began with a simple belief: coffee isn't just a daily caffeine fix — it's an artisanal culinary journey connecting farm soil, skilled roasting, and human warmth.
+            LATTE LOCA began with a simple belief: coffee isn't just a daily caffeine fix — it's an artisanal culinary journey connecting farm soil, skilled roasting, and human warmth.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ function AboutPage() {
             A Room That Warmly Welcomes You
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Soft ambient warm lighting, vinyl records playing slow jazz, comfortable leather armchairs, and baristas who genuinely care about dialing in your brew. Whether you stay for 10 minutes or 3 hours, BODRIN feels like home.
+            Soft ambient warm lighting, vinyl records playing slow jazz, comfortable leather armchairs, and baristas who genuinely care about dialing in your brew. Whether you stay for 10 minutes or 3 hours, LATTE LOCA feels like home.
           </p>
           <div className="pt-4 flex justify-center gap-4">
             <Link

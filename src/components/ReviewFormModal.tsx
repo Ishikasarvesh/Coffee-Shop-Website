@@ -77,7 +77,7 @@ export function ReviewFormModal({ isOpen, onClose }: ReviewFormModalProps) {
 
         <h2 className="font-display text-2xl font-bold text-cream">Write a Customer Review</h2>
         <p className="text-xs text-muted-foreground mt-1">
-          Share your experience with the BODRIN coffee community.
+          Share your experience with the LATTE LOCA coffee community.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">

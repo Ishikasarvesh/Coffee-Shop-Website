@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useContent } from "@/lib/site-content";
-import { Editable } from "@/components/Editable";
 import { toast } from "sonner";
 
 export function Footer() {
@@ -17,27 +16,32 @@ export function Footer() {
     }
 
     try {
-      const saved = localStorage.getItem("bodrin-newsletter") || "[]";
+      const saved = localStorage.getItem("latte-loca-newsletter") || "[]";
       const list = JSON.parse(saved);
       list.push({ email, date: new Date().toISOString() });
-      localStorage.setItem("bodrin-newsletter", JSON.stringify(list));
+      localStorage.setItem("latte-loca-newsletter", JSON.stringify(list));
     } catch {
       /* ignore */
     }
 
     setSubscribed(true);
-    toast.success("Welcome to the BODRIN Coffee Club!", {
+    toast.success("Welcome to the LATTE LOCA Coffee Club!", {
       description: "You will receive our Friday roasts & news.",
     });
     setEmail("");
   };
 
   return (
-    <footer className="border-t border-border bg-card/40 pt-16 pb-24 text-muted-foreground">
+    <footer className="border-t border-border bg-card/40 pt-16 pb-12 text-muted-foreground">
       <div className="mx-auto max-w-6xl px-5 grid gap-10 md:grid-cols-4">
         {/* Brand & Mission */}
         <div className="space-y-4 md:col-span-1">
-          <Link to="/" className="inline-block">
+          <Link to="/" className="inline-flex items-center gap-2.5">
+            <img
+              src="/latte-loca-logo.png"
+              alt="Latte Loca"
+              className="h-10 w-auto object-contain rounded-full border border-primary/30"
+            />
             <span className="font-display text-2xl font-extrabold tracking-[0.18em] text-cream">
               {content.brand}
             </span>
@@ -52,7 +56,7 @@ export function Footer() {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  toast.info(`Follow us on ${soc}! @bodrincoffee`);
+                  toast.info(`Follow us on ${soc}! @lattelocacoffee`);
                 }}
                 className="rounded-full border border-border p-2 text-xs transition-colors hover:border-primary hover:text-accent"
               >
@@ -126,7 +130,7 @@ export function Footer() {
             Fresh Roasts Newsletter
           </h4>
           <p className="text-xs text-muted-foreground">
-            <Editable path="footerNote" value={content.footerNote} />
+            {content.footerNote}
           </p>
           {subscribed ? (
             <div className="rounded-xl border border-primary/40 bg-primary/10 p-3 text-xs text-accent">
@@ -154,7 +158,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto max-w-6xl px-5 mt-12 pt-6 border-t border-border/50 text-center text-xs text-foreground/40">
-        <p>© {new Date().getFullYear()} BODRIN Coffee Bar. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} LATTE LOCA Coffee Bar. All rights reserved.</p>
       </div>
     </footer>
   );

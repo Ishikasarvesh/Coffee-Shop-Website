@@ -51,8 +51,8 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | null>(null);
 
-const STORAGE_KEY = "bodrin-cart-v1";
-const PROMO_KEY = "bodrin-promo-v1";
+const STORAGE_KEY = "latte-loca-cart-v1";
+const PROMO_KEY = "latte-loca-promo-v1";
 const TAX_RATE = 0.085; // 8.5% sales tax
 
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -207,7 +207,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return true;
       } else {
         toast.error("Invalid promo code", {
-          description: "Try STUDENT10 or WELCOMEBODRIN",
+          description: "Try STUDENT10 or WELCOMELATTE",
         });
         return false;
       }

@@ -8,11 +8,11 @@ import { useFavorites } from "@/hooks/useFavorites";
 export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
-      { title: "Menu — BODRIN Coffee Shop" },
+      { title: "Menu — LATTE LOCA Coffee Bar" },
       {
         name: "description",
         content:
-          "Browse the complete BODRIN specialty coffee menu: espresso, cappuccinos, silky lattes, cold brew, matcha, and fresh French bakery pastries.",
+          "Browse the complete LATTE LOCA specialty coffee menu: espresso, cappuccinos, silky lattes, cold brew, matcha, and fresh French bakery pastries.",
       },
     ],
   }),

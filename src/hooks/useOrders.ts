@@ -30,7 +30,7 @@ export type Order = {
   estimatedTime: string;
 };
 
-const ORDERS_KEY = "bodrin-orders-v1";
+const ORDERS_KEY = "latte-loca-orders-v1";
 
 export function computeLiveStatus(order: Order): OrderStatus {
   const elapsedSec = (Date.now() - order.timestamp) / 1000;

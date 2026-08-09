@@ -6,11 +6,11 @@ import { ReviewFormModal } from "@/components/ReviewFormModal";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Customer Reviews & Ratings — BODRIN Coffee" },
+      { title: "Customer Reviews & Ratings — LATTE LOCA" },
       {
         name: "description",
         content:
-          "Read genuine reviews and ratings from BODRIN coffee shop guests. Share your own coffee experience.",
+          "Read genuine reviews and ratings from LATTE LOCA coffee shop guests. Share your own coffee experience.",
       },
     ],
   }),

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Editable } from "@/components/Editable";
 import { useContent } from "@/lib/site-content";
 import { products, Product } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -15,11 +14,11 @@ import beans from "@/assets/beans.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "BODRIN Coffee — Specialty Coffee Bar & Fresh Roasts" },
+      { title: "LATTE LOCA — Specialty Coffee Bar & Fresh Roasts" },
       {
         name: "description",
         content:
-          "Small-batch espresso, silky lattes and dark mochas at BODRIN. Take the taste test, browse our full menu, and order fresh coffee online.",
+          "Small-batch espresso, silky lattes and dark mochas at LATTE LOCA. Take the taste test, browse our full menu, and order fresh coffee online.",
       },
     ],
   }),
@@ -27,7 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { content, editing } = useContent();
+  const { content } = useContent();
   const { addItem } = useCart();
   const { reviews } = useReviews();
 
@@ -59,17 +58,17 @@ function HomePage() {
             ✨ Handcrafted Small-Batch Roasts
           </div>
           <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-cream sm:text-5xl lg:text-6xl">
-            <Editable path="heroTitle" value={content.heroTitle} />
+            {content.heroTitle}
           </h1>
           <p className="max-w-lg text-base leading-relaxed text-muted-foreground">
-            <Editable path="heroBody" value={content.heroBody} />
+            {content.heroBody}
           </p>
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
               to="/menu"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:scale-105"
             >
-              <Editable path="heroCta" value={content.heroCta} />
+              {content.heroCta}
               <span aria-hidden>→</span>
             </Link>
             <Link
@@ -100,7 +99,7 @@ function HomePage() {
       <section id="menu" className="mx-auto max-w-6xl px-5 py-16">
         <div className="text-center space-y-2 mb-10">
           <p className="text-xs uppercase tracking-[0.3em] font-bold text-accent">
-            <Editable path="menuKicker" value={content.menuKicker} />
+            {content.menuKicker}
           </p>
           <h2 className="font-display text-3xl font-extrabold text-cream sm:text-4xl">
             Customer Favorites
@@ -129,12 +128,6 @@ function HomePage() {
             <span>→</span>
           </Link>
         </div>
-
-        {editing && (
-          <p className="mt-6 text-center text-xs text-muted-foreground">
-            Tip: every highlighted word on this page can be rewritten — changes are saved in your browser.
-          </p>
-        )}
       </section>
 
       {/* OFFERS BANNER PROMO */}
@@ -165,7 +158,7 @@ function HomePage() {
       {/* ABOUT SECTION PREVIEW */}
       <section className="relative mx-auto max-w-6xl px-5 py-16">
         <h2 className="font-display text-center text-3xl font-extrabold text-cream sm:text-4xl">
-          <Editable path="aboutTitle" value={content.aboutTitle} />
+          {content.aboutTitle}
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {content.perks.map((p, i) => (
@@ -178,10 +171,10 @@ function HomePage() {
               </span>
               <div className="min-w-0">
                 <h3 className="font-display text-lg font-bold text-cream">
-                  <Editable path={`perks.${i}.title`} value={p.title} />
+                  {p.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  <Editable path={`perks.${i}.body`} value={p.body} />
+                  {p.body}
                 </p>
               </div>
             </div>
@@ -198,7 +191,7 @@ function HomePage() {
                 Interactive Taste Test
               </span>
               <h2 className="font-display text-3xl font-extrabold text-cream sm:text-4xl mt-1">
-                <Editable path="quizTitle" value={content.quizTitle} />
+                {content.quizTitle}
               </h2>
             </div>
 
@@ -321,7 +314,7 @@ function HomePage() {
                   }
                   className="rounded-full bg-primary px-6 py-2.5 text-xs font-bold text-primary-foreground shadow-md transition-transform hover:scale-105"
                 >
-                  <Editable path="quizCta" value={content.quizCta} /> (${matchResult.product.price.toFixed(2)})
+                  {content.quizCta} (${matchResult.product.price.toFixed(2)})
                 </button>
                 <button
                   onClick={() => setSelectedProduct(matchResult.product)}

@@ -91,7 +91,7 @@ export function calculateRecommendation(quiz: TasteQuizState): RecommendationRes
   return {
     product: p,
     matchPercentage: 94,
-    reason: "Clean, rich, and versatile — the BODRIN Americano highlights subtle chocolate and nutty tones in every single sip.",
+    reason: "Clean, rich, and versatile — the LATTE LOCA Americano highlights subtle chocolate and nutty tones in every single sip.",
     recommendedSize: "Medium",
     recommendedMilk: milk === "none" ? "No Milk" : "Whole Milk",
   };

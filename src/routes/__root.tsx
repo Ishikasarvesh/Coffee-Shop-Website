@@ -12,43 +12,13 @@ import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { reportAppError } from "../lib/app-error-reporting";
-import { ContentProvider, useContent } from "../lib/site-content";
+import { ContentProvider } from "../lib/site-content";
 import { CartProvider } from "../hooks/useCart";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { CartDrawer } from "../components/CartDrawer";
 import { CheckoutModal } from "../components/CheckoutModal";
-import { Editable } from "../components/Editable";
 import { cn } from "../lib/utils";
-
-function EditBar() {
-  const { editing, setEditing, reset } = useContent();
-  return (
-    <div className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2">
-      <div className="flex items-center gap-2 rounded-full border border-border bg-card/90 px-3 py-2 shadow-[var(--shadow-deep)] backdrop-blur">
-        <button
-          onClick={() => setEditing(!editing)}
-          className={cn(
-            "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-            editing
-              ? "bg-primary text-primary-foreground"
-              : "bg-secondary text-secondary-foreground hover:bg-secondary/70"
-          )}
-        >
-          {editing ? "Done editing" : "Edit this page"}
-        </button>
-        {editing && (
-          <button
-            onClick={reset}
-            className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Reset
-          </button>
-        )}
-      </div>
-    </div>
-  );
-}
 
 function NotFoundComponent() {
   return (
@@ -113,17 +83,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BODRIN Coffee — Specialty Coffee Shop" },
+      { title: "LATTE LOCA — Specialty Coffee Shop" },
       {
         name: "description",
         content:
-          "BODRIN is a specialty coffee bar: hand-picked single origin beans, silky lattes, delicious bakery treats, and an editable experience.",
+          "LATTE LOCA is a specialty coffee bar: hand-picked single origin beans, silky lattes, delicious bakery treats, and an unforgettable experience.",
       },
-      { name: "author", content: "BODRIN Coffee Bar" },
-      { property: "og:title", content: "BODRIN Coffee — Specialty Coffee Shop" },
+      { name: "author", content: "LATTE LOCA Coffee Bar" },
+      { property: "og:title", content: "LATTE LOCA — Specialty Coffee Shop" },
       {
         property: "og:description",
-        content: "Hand-picked beans, playful drinks, and an interactive coffee shop.",
+        content: "Hand-picked beans, playful drinks, and an interactive coffee shop at LATTE LOCA.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -174,7 +144,6 @@ function RootComponent() {
               <Outlet />
             </main>
             <Footer />
-            <EditBar />
             <CartDrawer />
             <CheckoutModal />
             <Toaster position="bottom-right" theme="dark" closeButton />

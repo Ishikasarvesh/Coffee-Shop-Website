@@ -167,25 +167,6 @@
   background: var(--gradient-hero);
 }
 
-@utility editable-field {
-  border-radius: 0.4rem;
-  outline: none;
-  transition:
-    background-color 150ms ease,
-    box-shadow 150ms ease;
-  &[contenteditable="true"] {
-    box-shadow: 0 0 0 1px var(--color-primary);
-    cursor: text;
-  }
-  &[contenteditable="true"]:hover {
-    background-color: color-mix(in oklab, var(--color-primary) 14%, transparent);
-  }
-  &[contenteditable="true"]:focus {
-    box-shadow: 0 0 0 2px var(--color-primary);
-    background-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
-  }
-}
-
 @keyframes float-slow {
   0%,
   100% {

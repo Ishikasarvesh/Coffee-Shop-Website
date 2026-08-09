@@ -18,7 +18,7 @@ export const initialReviews: Review[] = [
     author: "Elena Rostova",
     rating: 5,
     title: "Unmatched cappuccino micro-foam!",
-    comment: "BODRIN has ruined all other coffee shops for me. The cappuccino milk texture is pure silk and the espresso flavor notes are subtly floral with zero bitterness.",
+    comment: "LATTE LOCA has ruined all other coffee shops for me. The cappuccino milk texture is pure silk and the espresso flavor notes are subtly floral with zero bitterness.",
     favoriteDrink: "Classic Cappuccino",
     date: "2 days ago",
     verified: true,
@@ -55,7 +55,7 @@ export const initialReviews: Review[] = [
   },
 ];
 
-const REVIEWS_KEY = "bodrin-reviews-v1";
+const REVIEWS_KEY = "latte-loca-reviews-v1";
 
 export function useReviews() {
   const [reviews, setReviews] = useState<Review[]>(initialReviews);

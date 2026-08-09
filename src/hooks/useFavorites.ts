@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
 
-const FAVORITES_KEY = "bodrin-favorites-v1";
+const FAVORITES_KEY = "latte-loca-favorites-v1";
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<string[]>([]);

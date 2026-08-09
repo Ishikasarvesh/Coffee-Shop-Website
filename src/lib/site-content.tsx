@@ -1,6 +1,5 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -32,7 +31,7 @@ export type SiteContent = {
 };
 
 export const defaultContent: SiteContent = {
-  brand: "BODRIN",
+  brand: "LATTE LOCA",
   navOrder: "Order now",
   heroTitle: "Discover a superb taste in every single sip!",
   heroBody:
@@ -62,7 +61,7 @@ export const defaultContent: SiteContent = {
       rating: "4.7",
     },
   ],
-  aboutTitle: "BODRIN is",
+  aboutTitle: "LATTE LOCA is",
   perks: [
     {
       id: "p1",
@@ -90,32 +89,16 @@ export const defaultContent: SiteContent = {
   footerNote: "Fresh roasts, new drinks and small news — every Friday.",
 };
 
-const STORAGE_KEY = "bodrin-content-v1";
+const STORAGE_KEY = "latte-loca-content-v1";
 
 type Ctx = {
   content: SiteContent;
-  editing: boolean;
-  setEditing: (v: boolean) => void;
-  update: (path: string, value: string) => void;
-  reset: () => void;
 };
 
 const ContentContext = createContext<Ctx | null>(null);
 
-function setByPath(obj: SiteContent, path: string, value: string): SiteContent {
-  const next = structuredClone(obj) as unknown as Record<string, unknown>;
-  const keys = path.split(".");
-  let cursor: Record<string, unknown> = next;
-  for (let i = 0; i < keys.length - 1; i++) {
-    cursor = cursor[keys[i]!] as Record<string, unknown>;
-  }
-  cursor[keys[keys.length - 1]!] = value;
-  return next as unknown as SiteContent;
-}
-
 export function ContentProvider({ children }: { children: ReactNode }) {
   const [content, setContent] = useState<SiteContent>(defaultContent);
-  const [editing, setEditing] = useState(false);
 
   useEffect(() => {
     try {
@@ -126,36 +109,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const persist = useCallback((next: SiteContent) => {
-    setContent(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  const update = useCallback(
-    (path: string, value: string) => {
-      setContent((prev) => {
-        const next = setByPath(prev, path, value);
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-        } catch {
-          /* ignore */
-        }
-        return next;
-      });
-    },
-    [],
-  );
-
-  const reset = useCallback(() => persist(defaultContent), [persist]);
-
-  const value = useMemo(
-    () => ({ content, editing, setEditing, update, reset }),
-    [content, editing, update, reset],
-  );
+  const value = useMemo(() => ({ content }), [content]);
 
   return <ContentContext.Provider value={value}>{children}</ContentContext.Provider>;
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useContent } from "@/lib/site-content";
-import { Editable } from "@/components/Editable";
 import { useCart } from "@/hooks/useCart";
 import { useFavorites } from "@/hooks/useFavorites";
 import { cn } from "@/lib/utils";
@@ -26,13 +25,15 @@ export function Navbar() {
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-2">
-          <Editable
-            path="brand"
-            value={content.brand}
-            as="span"
-            className="font-display text-2xl font-extrabold tracking-[0.18em] text-cream"
+        <Link to="/" className="flex items-center gap-2.5">
+          <img
+            src="/latte-loca-logo.png"
+            alt="Latte Loca"
+            className="h-9 w-auto object-contain rounded-full border border-primary/30"
           />
+          <span className="font-display text-xl font-extrabold tracking-[0.18em] text-cream sm:text-2xl">
+            {content.brand}
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -109,7 +110,7 @@ export function Navbar() {
             to="/menu"
             className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:scale-105 hover:bg-primary/90 sm:inline-flex"
           >
-            <Editable path="navOrder" value={content.navOrder} />
+            {content.navOrder}
           </Link>
 
           {/* Mobile hamburger button */}

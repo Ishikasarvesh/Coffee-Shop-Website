@@ -117,7 +117,7 @@ export const products: Product[] = [
   },
   {
     id: "americano",
-    name: "BODRIN Americano",
+    name: "LATTE LOCA Americano",
     description: "Double shot of espresso diluted with purified hot water, producing a smooth cup preserving light subtle crema.",
     category: "espresso",
     price: 3.8,

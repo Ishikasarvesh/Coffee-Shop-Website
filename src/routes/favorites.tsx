@@ -8,7 +8,7 @@ import { ProductModal } from "@/components/ProductModal";
 export const Route = createFileRoute("/favorites")({
   head: () => ({
     meta: [
-      { title: "Saved Favorites — BODRIN Coffee" },
+      { title: "Saved Favorites — LATTE LOCA" },
       {
         name: "description",
         content: "View and order your bookmarked favorite coffee drinks and bakery treats.",
